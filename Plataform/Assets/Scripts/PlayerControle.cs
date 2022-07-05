@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.iOS;
@@ -9,6 +10,9 @@ public class PlayerControle : MonoBehaviour
 {
     // Número de moedas coletas
     public int coins = 0;
+    
+    // Referência para o elemento de interface de texto
+    public TMP_Text coinText;
     
     // Guarda uma referência para os controles que criamos no InputAction
     private Controls _gameControls;
@@ -208,6 +212,10 @@ public class PlayerControle : MonoBehaviour
         {
             //Aumente o número de coins do jogador em uma unidade
             coins++;
+            
+            // Atualizar o número de coins na interface
+            coinText.text = coins.ToString();
+            
             // Destrua o objeto da coin
             Destroy(other.gameObject);
         }

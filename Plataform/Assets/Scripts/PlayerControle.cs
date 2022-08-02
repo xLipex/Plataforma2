@@ -8,12 +8,12 @@ using UnityEngine.InputSystem.iOS;
 
 public class PlayerControle : MonoBehaviour
 {
-    // Número de moedas coletas
+    // Número de moedas coletados
     public int coins = 0;
     
-    // Referência para o elemento de interface de texto
-    public TMP_Text coinText;
-    
+    // Número de rubys coletados
+    public int rubys = 0;
+        
     // Guarda uma referência para os controles que criamos no InputAction
     private Controls _gameControls;
     
@@ -213,10 +213,17 @@ public class PlayerControle : MonoBehaviour
             //Aumente o número de coins do jogador em uma unidade
             coins++;
             
-            // Atualizar o número de coins na interface
-            coinText.text = coins.ToString();
-            
+            // Manda a notificação da mudança do valor de coins
+            PlayerObserverManager.CoinsChanged(coins);
+
             // Destrua o objeto da coin
+            Destroy(other.gameObject);
+        }
+        
+        if (other.CompareTag("Ruby"))
+        {
+            rubys++;
+            PlayerObserverManager.RubyChanged(rubys);
             Destroy(other.gameObject);
         }
     }

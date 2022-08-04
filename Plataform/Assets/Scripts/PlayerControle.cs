@@ -223,7 +223,9 @@ public class PlayerControle : MonoBehaviour
         if (other.CompareTag("Ruby"))
         {
             rubys++;
-            PlayerObserverManager.RubyChanged(rubys);
+            
+            PlayerObserverManager.RubysChanged(rubys);
+            
             Destroy(other.gameObject);
         }
     }

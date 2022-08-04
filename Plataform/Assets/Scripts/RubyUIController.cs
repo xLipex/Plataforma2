@@ -1,3 +1,6 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -8,18 +11,18 @@ public class RubyUIController : MonoBehaviour
     private void OnEnable()
     {
         // Se inscreve no canal de rubys
-        PlayerObserverManager.OnRubyChanged += UpdateRubyText;
+        PlayerObserverManager.OnRubysChanged += UpdateRubyText;
     }
 
     private void OnDisable()
     {
         // Retira a inscrição no canal de coins
-        PlayerObserverManager.OnRubyChanged -= UpdateRubyText;
+        PlayerObserverManager.OnRubysChanged -= UpdateRubyText;
     }
 
     //Função usada para tratar a notificação do canal de coins
-    private void UpdateRubyText(int newRubyValue)
+    private void UpdateRubyText(int newRubysValue)
     {
-        rubyText.text = newRubyValue.ToString();
+        rubyText.text = newRubysValue.ToString();
     }
 }

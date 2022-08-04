@@ -19,10 +19,10 @@ public static class PlayerObserverManager
         OnCoinsChanged?.Invoke(value);
     }
 
-    public static Action<int> OnRubyChanged;
+    public static Action<int> OnRubysChanged;
 
-    public static void RubyChanged(int value)
+    public static void RubysChanged(int value)
     {
-        OnRubyChanged?.Invoke(value);
+        OnRubysChanged?.Invoke(value);
     }
 }

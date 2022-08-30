@@ -16,11 +16,11 @@ public class RubyUIController : MonoBehaviour
 
     private void OnDisable()
     {
-        // Retira a inscrição no canal de coins
+        // Retira a inscrição no canal de rubys
         PlayerObserverManager.OnRubysChanged -= UpdateRubyText;
     }
 
-    //Função usada para tratar a notificação do canal de coins
+    //Função usada para tratar a notificação do canal de rubys
     private void UpdateRubyText(int newRubysValue)
     {
         rubyText.text = newRubysValue.ToString();

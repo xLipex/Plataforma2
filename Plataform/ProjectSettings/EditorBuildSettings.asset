@@ -14,5 +14,20 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lesson.unity
     guid: f8711f56036a09c4b8e80110cc2655cc
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 58653492d2ffac04e938a010ac03be72
+  - enabled: 1
+    path: Assets/Scenes/Ending.unity
+    guid: 81a2fe40b4ec58847951077588c639c7
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: f3e41cc779b5bfe40b1cc742a2c0b6a8
+  - enabled: 1
+    path: Assets/Scenes/Splash.unity
+    guid: e67c7dd3f2f30a44bbd73dba1fe409ef
+  - enabled: 1
+    path: Assets/Scenes/Victory.unity
+    guid: 4c4e75e38b25b7944bd53067394ab4be
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: c95f263a63a1f6e43ae44e0fae602de1, type: 2}

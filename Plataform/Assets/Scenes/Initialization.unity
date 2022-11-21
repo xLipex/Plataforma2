@@ -166,6 +166,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb0ee52e6794e944080316f2031b81b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameMode: {fileID: 11400000, guid: 6e43cc33ac197e243839054989ee58ff, type: 2}
+  coinsToWin: 0
+  timeToLose: 200
   guiName: GUI
   levelName: Lesson
   playerAndCameraPrefab: {fileID: 7222192831304402611, guid: 6cf6a176d9c9a4e4ca11cb0755cbcb21, type: 3}

@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd6b301b3f46482e84443e4b32bf4132, type: 3}
-  m_Name: CollectCoinsGameMode
+  m_Script: {fileID: 11500000, guid: 43125c767f734651a702a0d20da761a6, type: 3}
+  m_Name: ReachVictoryGameMode
   m_EditorClassIdentifier: 
-  CoinsToCollect: 5
-  timeToLose: 5

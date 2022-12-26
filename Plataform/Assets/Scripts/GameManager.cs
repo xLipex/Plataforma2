@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
     private void OnDisable()
     {
         PlayerObserverManager.OnCoinsChanged -= PlayerCoinsUpdate;
-        gameMode.OnGameModeStateChanged -= HandleGameMode;
+        if (gameMode != null) gameMode.OnGameModeStateChanged -= HandleGameMode;
     }
 
     private void Awake()
@@ -199,18 +199,19 @@ public class GameManager : MonoBehaviour
 
     private void ResetTimer()
     {
-        _currentTime = timeToLose;
+        _currentTime = 0;
     }
 
     private void Update()
     {
         if (GameState == GameState.Running)
         {
-            _currentTime -= Time.deltaTime;
-            if (_currentTime <= 0)
+            _currentTime += Time.deltaTime;
+            gameMode.UpdateGameMode(0,_currentTime);
+            /*if (_currentTime <= 0)
             {
                 GameState = GameState.GameOver;
-            }
+            }*/
         }
 
         if (GameState == GameState.Victory)
@@ -240,6 +241,11 @@ public class GameManager : MonoBehaviour
     private void HandleGameMode(GameState obj)
     {
         GameState = obj;
+    }
+
+    public void ReachedVictoryFlag()
+    {
+        gameMode.UpdateGameMode(0,0,true);
     }
     
 }

@@ -9,8 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd6b301b3f46482e84443e4b32bf4132, type: 3}
-  m_Name: CollectCoinsGameMode
+  m_Script: {fileID: 11500000, guid: fa122f4be3e94cee83b155aa03f7d575, type: 3}
+  m_Name: EnemyData
   m_EditorClassIdentifier: 
-  CoinsToCollect: 5
-  timeToLose: 5
+  name: Hector
+  maxHealth: 100
+  moveSpeed: 3
+  attackDamage: 1
+  model: {fileID: 0}
+  distanceToFollow: 5
+  distanceToAttack: 1
+  distanceToLeaveAttack: 1.5
+  distanceToLeaveFollow: 7

@@ -25,4 +25,11 @@ public static class PlayerObserverManager
     {
         OnRubysChanged?.Invoke(value);
     }
+    
+    public static Action<int> OnHealthChanged;
+    public static void HealthChanged(int health)
+    {
+        OnHealthChanged?.Invoke(health);
+    }
+
 }

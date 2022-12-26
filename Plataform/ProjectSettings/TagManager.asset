@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Coin
   - Ruby
+  - Victory
+  - Spike
+  - Enemy
   layers:
   - Default
   - TransparentFX

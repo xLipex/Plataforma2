@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,6 +9,12 @@ using UnityEngine.InputSystem.iOS;
 
 public class PlayerControle : MonoBehaviour
 {
+    public int maxHealth = 100;
+
+    private int _currentHealth;
+
+    public float damageForceDivider = 1;
+
     // Número de moedas coletados
     public int coins = 0;
     
@@ -49,6 +56,10 @@ public class PlayerControle : MonoBehaviour
     
     private void OnEnable()
     {
+        _currentHealth = maxHealth;
+        
+        PlayerObserverManager.HealthChanged(_currentHealth);
+         
         // Associa a variável ao componente Rigidbody presente no objeto do jogador na Unity
         _rigidbody = GetComponent<Rigidbody>();
         
@@ -219,7 +230,7 @@ public class PlayerControle : MonoBehaviour
             // Destrua o objeto da coin
             Destroy(other.gameObject);
         }
-        
+
         if (other.CompareTag("Ruby"))
         {
             rubys++;
@@ -227,6 +238,31 @@ public class PlayerControle : MonoBehaviour
             PlayerObserverManager.RubysChanged(rubys);
             
             Destroy(other.gameObject);
+        }
+        
+        if (other.CompareTag("Victory"))
+        {
+            GameManager.Instance.ReachedVictoryFlag();
+        }
+    }
+
+    public void ChangeHearth(int hearth, [Optional] bool withForce, [Optional] Vector3 forceDirection)
+    {
+        _currentHealth += hearth;
+    
+        /*
+        if (_currentHealth > maxHealth) _currentHealth = maxHealth;
+        if (_currentHealth < 0) _currentHealth = 0;
+        */
+        
+        _currentHealth = Mathf.Clamp(_currentHealth, 0, maxHealth);
+        
+        PlayerObserverManager.HealthChanged(_currentHealth);
+
+        if (withForce)
+        {
+            _rigidbody.AddForce(forceDirection * Mathf.Abs(hearth)/damageForceDivider, ForceMode.Impulse);
+            
         }
     }
 }
